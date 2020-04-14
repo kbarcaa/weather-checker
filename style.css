@@ -1,0 +1,37 @@
+
+#header{
+  margin: 0;
+  padding: 1rem;
+  background-color: rgba(14, 13, 13, 0.85);
+  color: white;
+  text-align: center;
+}
+#button{
+  border: 1px solid black;
+}
+#li{
+  list-style: none;
+  padding: 1rem;
+  border: 1px solid black;
+}
+#search{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+  border: 1px solid black;
+  height: 719px
+}
+#displayMain{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+  border: 1px solid black;
+  height: 500px
+}
+#fiveDay{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid black;
+  height: 200px
+}
+
