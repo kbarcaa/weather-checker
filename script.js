@@ -52,6 +52,37 @@ searchForm.addEventListener("submit", function(event){
 
 
 
-// creating variables for weather stuff
+// WEATHER STUFF 
+// var cityName = search;
+var APIkey = "b328ccab8d372c776afbedb2b4434e8c"
+var oneDayURL = "https://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=" + APIkey;
+//var oneDayURL="https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid" + APIkey;
 
-//
+
+$.ajax({
+  url: oneDayURL,
+  method: "GET"
+}).then(function(response){
+  console.log(oneDayURL);
+  console.log(response);
+
+var city = response.name;
+var country = response.sys.country;
+var tempK = response.main.temp;
+var tempF = (parseFloat(tempK) - 273.15)*1.80+32;
+var humidity = response.main.humidity;
+var wind = response.wind.speed;
+//var uv = response.
+
+$("#city").text(city + ", " + country);
+$("#temp").text(tempF + " degress Farenheit");
+$("#humidity").text(humidity + "%");
+$("#wind").text(wind + "MPH");
+
+
+
+
+
+
+
+})
