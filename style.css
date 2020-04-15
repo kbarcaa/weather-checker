@@ -21,6 +21,16 @@
   border: 1px solid black;
   height: 719px
 }
+button{
+  margin: 1rem;
+}
+
+
+
+#searchText{
+  display: block;
+  max-width: auto;
+}
 #displayMain{
   margin-top: 1rem;
   margin-bottom: 1rem;

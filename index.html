@@ -6,6 +6,7 @@
   <title>homework06_practice</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -21,12 +22,16 @@
 
     <div class="row" id= "row">
       <div class="col-sm-3" id="search">
-        <label for="searchText">Search for a City: </label>
-          <input type="text" id="searchText" placeholder="city name"/>
-          <button id="searchButton"><i class="fa fa-search"></i></button>
-          <ul id="ul">
+        <form id="searchForm" method="POST">
+          <label for="searchText" id="label">Search for a City: </label>
+          <input type="text" id="searchText" placeholder ="&#xf002; Enter a City" />
+          
+          
+          
+          <ul id="searchList">
           
           </ul>
+        </form>
       </div>
 
       <div class="col-sm-9" >
