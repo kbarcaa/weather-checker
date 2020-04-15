@@ -25,7 +25,15 @@ button{
   margin: 1rem;
 }
 
+#city{
+  font-size: 3rem;
+  margin-bottom: 2rem
+}
 
+.listItem{
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
 
 #searchText{
   display: block;
@@ -34,7 +42,6 @@ button{
 #displayMain{
   margin-top: 1rem;
   margin-bottom: 1rem;
-  
   border: 1px solid black;
   height: 500px
 }

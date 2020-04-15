@@ -49,3 +49,9 @@ searchForm.addEventListener("submit", function(event){
   storeSearch();
   renderSearch();
 })
+
+
+
+// creating variables for weather stuff
+
+//
