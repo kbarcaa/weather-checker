@@ -73,12 +73,25 @@ $("#searchCity").on("click", function(event){
     $("#temp").text(tempF + " degress Farenheit");
     $("#humidity").text(humidity + "%");
     $("#wind").text(wind + "MPH");
-
-    
   })
+  storeSearch();
 })
 
 
+getSearch();
+
+function getSearch(){
+  var storedSearch = JSON.parse(localStorage.getItem("cities"));
+  if (storedSearch !== null){
+    allCities = storedSearch;
+  }
+  renderButtons();
+}
+
+
+function storeSearch(){
+  localStorage.setItem("cities", JSON.stringify(allCities));
+};
 
 
 

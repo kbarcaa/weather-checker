@@ -6,9 +6,9 @@
   color: white;
   text-align: center;
 }
-#button{
-  border: 1px solid black;
-}
+
+  
+
 #li{
   list-style: none;
   padding: 1rem;
@@ -21,13 +21,22 @@
   border: 1px solid black;
   height: 719px
 }
-button{
+button {
   margin: 1rem;
+  background-color: lightskyblue;
+  color: white;
+}
+#searchCity{
+  background-color: coral;
+  color: white:
 }
 
 #city{
   font-size: 3rem;
   margin-bottom: 2rem
+}
+#cityInput{
+  margin-top: 1rem;
 }
 
 .listItem{
