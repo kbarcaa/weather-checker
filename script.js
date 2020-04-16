@@ -1,6 +1,6 @@
 var allCities = [];
 
-
+// function to call on information
 function getCityInfo(cityName){
 
   var APIkey = "b328ccab8d372c776afbedb2b4434e8c"
@@ -24,44 +24,28 @@ function getCityInfo(cityName){
     $("#humidity").text(humidity + "%");
     $("#wind").text(wind + "MPH");
 
+    // creating a nesting ajax to call upon independent UV API.
     var uvURL =  "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
     $.ajax({
       url: uvURL,
       method: "GET"
     }).then(function(response){
       var uv = response.value;
-      $("#uv").text(uv)
+      $("#uv").text(uv);
 
+      // giving <uv span> color according to value number
+      if(response.value >= 10){
+        $("#uv").css("background-color", "red")
+      } else if(response.value < 10 && response.value > 6) {
+        $("#uv").css("background-color", "yellow")
+      } else {
+        $("#uv").css("background-color", "green")
+      }
     })
-
-    
   })
-
-  
-  //getFiveDay();
 }
 
-$("#searchList").on("click", "button", function(){
-  console.log($(this).text());
-  var cityName =$(this).text();
-  getCityInfo(cityName);
-
-
-  var APIkey = "b328ccab8d372c776afbedb2b4434e8c"
-  var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey;
-  
-  $.ajax({
-    url: fiveDayURL,
-    method: "GET"
-  }).then(function(response2){
-  
-    // console.log(fiveDayArr)
-    renderFiveDays(response2);
-  })
-  
-  
-})
-
+// function to render buttons with user input City name
 function renderButtons(){
   $("#searchList").html("");
   for(i=0;i<allCities.length;i++){
@@ -71,11 +55,11 @@ function renderButtons(){
   }
 }
 
-
+// function initiates on Submitting of City from user
+// it will display city information on the page
 $("#searchCity").on("click", function(event){
 
   event.preventDefault();
-
   var cityName = $("#cityInput").val();
   allCities.push(cityName);
   renderButtons();
@@ -96,20 +80,29 @@ $("#searchCity").on("click", function(event){
     tempF = tempF.toFixed(2)
     var humidity = response.main.humidity;
     var wind = response.wind.speed;
-    //var uv = response.
-
+  
     $("#city").text(city + ", " + country);
     $("#temp").text(tempF + " degress Farenheit");
     $("#humidity").text(humidity + "%");
     $("#wind").text(wind + "MPH");
 
+    // creating a nesting ajax to call upon independent UV API.
     var uvURL =  "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
     $.ajax({
       url: uvURL,
       method: "GET"
     }).then(function(response){
       var uv = response.value;
-      $("#uv").text(uv)
+      $("#uv").text(uv);
+
+      // giving <uv span> color according to value number
+      if(response.value >= 10){
+        $("#uv").css("background-color", "red")
+      } else if(response.value < 10 && response.value > 6) {
+        $("#uv").css("background-color", "yellow")
+      } else {
+        $("#uv").css("background-color", "green")
+      }
 
     })
 
@@ -132,6 +125,26 @@ $("#searchCity").on("click", function(event){
   storeSearch();
 })
 
+
+// function to display information when city-named-buttons are clicked.
+$("#searchList").on("click", "button", function(){
+  console.log($(this).text());
+  var cityName =$(this).text();
+  getCityInfo(cityName);
+
+  var APIkey = "b328ccab8d372c776afbedb2b4434e8c"
+  var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey;
+  
+  $.ajax({
+    url: fiveDayURL,
+    method: "GET"
+  }).then(function(response2){
+    // console.log(fiveDayArr)
+    renderFiveDays(response2);
+  })
+})
+
+// function to call on five day information
 function renderFiveDays(response2){
 
   var fiveDayArr = getForecastForEachDay(response2.list);
@@ -154,8 +167,6 @@ function renderFiveDays(response2){
     var date = $("<h4>")
     date.text("Date: " + fiveDayArr[i].dt_txt.split("")[0]);
     
-
-
     divTag.append(date)
     divTag.append(temp)
     
@@ -163,7 +174,7 @@ function renderFiveDays(response2){
 
   }
 };
-
+//function to create an array of 5 to use in other functions
 function getForecastForEachDay(listOfForecasts){
   var forecastArray=[];
   var currentDate = "";
@@ -183,8 +194,8 @@ function getForecastForEachDay(listOfForecasts){
   return forecastArray;
 }
 
+// calling on stored items when page refreshed
 getSearch();
-
 function getSearch(){
   var storedSearch = JSON.parse(localStorage.getItem("cities"));
   if(storedSearch !==null){
@@ -193,16 +204,15 @@ function getSearch(){
 renderButtons();
 }
 
+// function to store user's search
 function storeSearch(){
   localStorage.setItem("cities", JSON.stringify(allCities));
 }
 
-$("#searchList").on("click", "button", function(){
-  console.log($(this).text());
-  var cityName =$(this).text();
-  getCityInfo(cityName);
-  // getFiveDay(cityName);
-})
+
+
+
+
 
 ///////////////////////////////////
 
@@ -233,14 +243,6 @@ $("#searchList").on("click", "button", function(){
 //   })
 // }
 
-
-
-
-
-
-
-
-
 // $("#fiveDay").text("");
 
     // for (i=0; i<fiveDayArr.length; i++){
@@ -270,29 +272,6 @@ $("#searchList").on("click", "button", function(){
     4. Then loop through that array to create the 5 blue blocks at the bottom
     5. You're welcome.  :)
   */ 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // var searchInput = document.querySelector("#searchText");
 // var searchForm = document.querySelector("#searchForm");
@@ -346,7 +325,6 @@ $("#searchList").on("click", "button", function(){
 //   renderSearch();
 //   oneDayWeather();
 // })
-
 
 
 // // WEATHER STUFF 
