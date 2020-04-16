@@ -4,7 +4,7 @@ var allCities = [];
 function getCityInfo(cityName){
 
   var APIkey = "b328ccab8d372c776afbedb2b4434e8c"
-  var oneDayURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey;
+  var oneDayURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey;
   
   $.ajax({
     url: oneDayURL,
@@ -65,14 +65,13 @@ $("#searchCity").on("click", function(event){
   renderButtons();
   
   var APIkey = "b328ccab8d372c776afbedb2b4434e8c"
-  var oneDayURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey;
+  var oneDayURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey;
   
   $.ajax({
     url: oneDayURL,
     method: "GET"
   }).then(function(response){
-    console.log(oneDayURL);
-    console.log(response);
+    
     var city = response.name;
     var country = response.sys.country;
     var tempK = response.main.temp;
@@ -107,7 +106,7 @@ $("#searchCity").on("click", function(event){
   })
 
 
-  var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey;
+  var fiveDayURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey;
   
   $.ajax({
     url: fiveDayURL,
@@ -131,7 +130,7 @@ $("#searchList").on("click", "button", function(){
   getCityInfo(cityName);
 
   var APIkey = "b328ccab8d372c776afbedb2b4434e8c"
-  var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey;
+  var fiveDayURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey;
   
   $.ajax({
     url: fiveDayURL,
