@@ -24,17 +24,17 @@
     <div class="row" id= "row">
       <div class="col-sm-2" id="search">
         <form id="searchForm" method="POST">
-          
-          <input type="text" id="cityInput" placeholder ="&#xf002; search for a City" />
+          <label for="cityInput" id="label"> </label>
+          <input type="text" id="cityInput" placeholder ="&#xf002; Enter a City" />
           <input type="submit" id="searchCity">
         </form>
         <div id="searchList"></div>
       </div>
 
-      <div class="col-sm-9" >
+      <div class="col" id= "main">
         <div id="displayMain">
           
-          <div class="" id=""><span id= "city"></span> </div>
+          <div class="" id=""><span id= "city">City</span> </div>
           <div class="listItem" id="">Temperature: <span id= "temp"></span></div>
           <div class="listItem" id="">Humidity: <span id= "humidity"></span></div>
           <div class="listItem" id="">Wind Speed: <span id= "wind"></span></div>
@@ -42,7 +42,17 @@
         </div>
         
 
-        <h3 id= "fiveDay">5-Day Forecast: </h3>
+        <div class ="row" id= "">
+          <div class= "col-sm-2" id= >Monday Forecast: <span id="monday"></span></div>
+          <div class= "col-sm-2" >Tuesday Forecast: <span id="tuesday"></span> </div>
+          <div class= "col-sm-2" >Wednesday Forecast: <span id="wednesday"></span></div>
+          <div class= "col-sm-2" >Thursday Forecast: <span id="thursday"></span></div>
+          <div class= "col-sm-2" >Friday Forecast: <span id="friday"></span></div>
+        </div>
+          
+        
+        
+
       </div>
 
     </div>

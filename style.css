@@ -1,4 +1,7 @@
-
+.container{
+  padding: 0 50px;
+  
+}
 #header{
   margin: 0;
   padding: 1rem;
@@ -6,38 +9,35 @@
   color: white;
   text-align: center;
 }
-
-  
-
+#button{
+  border: 1px solid black;
+}
 #li{
   list-style: none;
   padding: 1rem;
   border: 1px solid black;
 }
 #search{
+  margin-left: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  margin-left: 3rem;
+  
   border: 1px solid black;
-  height: 719px;
-  padding: 1rem
 }
-button {
+button{
   margin: 1rem;
-  background-color: lightskyblue;
+  background-color: cornflowerblue;
   color: white;
-}
-#searchCity{
-  background-color: coral;
-  color: white;
+  width: 9rem;
 }
 
 #city{
   font-size: 3rem;
   margin-bottom: 2rem
 }
-#cityInput{
-  margin-top: 1rem;
+#searchCity{
+  background-color: coral;
+  color: white;
 }
 
 .listItem{
@@ -54,12 +54,14 @@ button {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 1px solid black;
-  height: 500px
+  height: auto;
+  padding-right: auto;
 }
-#fiveDay{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+
+.col-sm-2{
   border: 1px solid black;
-  height: 200px
+  height: auto;
+  width: auto;
+  margin: .5rem;
 }
 

@@ -1,5 +1,5 @@
-
 var allCities = [];
+
 
 function getCityInfo(cityName){
 
@@ -77,24 +77,48 @@ $("#searchCity").on("click", function(event){
   storeSearch();
 })
 
-
 getSearch();
 
 function getSearch(){
   var storedSearch = JSON.parse(localStorage.getItem("cities"));
-  if (storedSearch !== null){
+  if(storedSearch !==null){
     allCities = storedSearch;
   }
-  renderButtons();
+renderButtons();
 }
-
 
 function storeSearch(){
   localStorage.setItem("cities", JSON.stringify(allCities));
-};
+}
 
 
+function getFiveDay(cityName){
 
+  var APIkey = "b328ccab8d372c776afbedb2b4434e8c"
+  var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey;
+  
+  $.ajax({
+    url: fiveDayURL,
+    method: "GET"
+  }).then(function(response2){
+    console.log(fiveDayURL);
+    console.log(response2);
+
+    $("#monday").text(response2.list[0].main.temp)
+    $("#tuesday").text(response2.list[1].main.temp)
+    $("#wednesday").text(response2.list[2].main.temp)
+    $("#thursday").text(response2.list[3].main.temp)
+    $("#friday").text(response2.list[4].main.temp)
+
+  })
+}
+
+$("#searchList").on("click", "button", function(){
+  console.log($(this).text());
+  var cityName =$(this).text();
+  getCityInfo(cityName);
+  getFiveDay(cityName);
+})
 
 
 
