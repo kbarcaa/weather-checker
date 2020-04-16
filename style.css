@@ -65,3 +65,6 @@ button{
   margin: .5rem;
 }
 
+#fiveDayBox{
+  border: 1px solid black;
+}
