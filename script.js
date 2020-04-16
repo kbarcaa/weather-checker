@@ -56,7 +56,7 @@ function renderButtons(){
 }
 
 // function initiates on Submitting of City from user
-// it will display city information on the page
+// it will display city information on the page.
 $("#searchCity").on("click", function(event){
 
   event.preventDefault();
@@ -103,9 +103,7 @@ $("#searchCity").on("click", function(event){
       } else {
         $("#uv").css("background-color", "green")
       }
-
     })
-
   })
 
 
