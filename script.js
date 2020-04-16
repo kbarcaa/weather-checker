@@ -18,12 +18,23 @@ function getCityInfo(cityName){
     tempF = tempF.toFixed(2);
     var humidity = response.main.humidity;
     var wind = response.wind.speed;
-    //var uv = response.
-
+    
     $("#city").text(city + ", " + country);
     $("#temp").text(tempF + " degress Farenheit");
     $("#humidity").text(humidity + "%");
     $("#wind").text(wind + "MPH");
+
+    var uvURL =  "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+    $.ajax({
+      url: uvURL,
+      method: "GET"
+    }).then(function(response){
+      var uv = response.value;
+      $("#uv").text(uv)
+
+    })
+
+    
   })
 
   
@@ -91,6 +102,17 @@ $("#searchCity").on("click", function(event){
     $("#temp").text(tempF + " degress Farenheit");
     $("#humidity").text(humidity + "%");
     $("#wind").text(wind + "MPH");
+
+    var uvURL =  "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+    $.ajax({
+      url: uvURL,
+      method: "GET"
+    }).then(function(response){
+      var uv = response.value;
+      $("#uv").text(uv)
+
+    })
+
   })
 
 
