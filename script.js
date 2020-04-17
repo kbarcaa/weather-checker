@@ -1,6 +1,5 @@
 // declaring vairables
 var allCities = [];
-
 var someDate = new Date();
 var dd = someDate.getDate();
 var mm = someDate.getMonth()+1;
@@ -68,6 +67,10 @@ function renderButtons(){
   }
 }
 
+function resetSearchBar(){
+  $("#cityInput").val("");
+}
+
 // function initiates on Submitting of City from user
 // it will display city information on the page
 $("#searchCity").on("click", function(event){
@@ -76,6 +79,7 @@ $("#searchCity").on("click", function(event){
   var cityName = $("#cityInput").val();
   allCities.push(cityName);
   renderButtons();
+  resetSearchBar();
   
   var APIkey = "b328ccab8d372c776afbedb2b4434e8c"
   var oneDayURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey;
