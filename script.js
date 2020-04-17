@@ -25,7 +25,7 @@ function getCityInfo(cityName){
     $("#wind").text(wind + "MPH");
 
     // creating a nesting ajax to call upon independent UV API.
-    var uvURL =  "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+    var uvURL =  "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
     $.ajax({
       url: uvURL,
       method: "GET"
@@ -42,7 +42,10 @@ function getCityInfo(cityName){
         $("#uv").css("background-color", "green")
       }
     })
+    
   })
+
+  
 }
 
 // function to render buttons with user input City name
@@ -87,7 +90,7 @@ $("#searchCity").on("click", function(event){
     $("#wind").text(wind + "MPH");
 
     // creating a nesting ajax to call upon independent UV API.
-    var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+    var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
     $.ajax({
       url: uvURL,
       method: "GET"
@@ -104,7 +107,6 @@ $("#searchCity").on("click", function(event){
         $("#uv").css("background-color", "green")
       }
     })
-
   })
 
 
