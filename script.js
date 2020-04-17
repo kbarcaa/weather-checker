@@ -1,10 +1,11 @@
 // declaring vairables
 var allCities = [];
-var dateTag = new Date();
-var month = dateTag.getUTCMonth() + 1;
-var day = dateTag.getUTCDate();
-var year = dateTag.getUTCFullYear();
-var displayDate = month + "/" + day + "/" + year;
+
+var someDate = new Date();
+var dd = someDate.getDate();
+var mm = someDate.getMonth()+1;
+var y = someDate.getFullYear();
+var displayDate = mm + "/" + dd + "/" + y;
 
 
 // function to call on information
