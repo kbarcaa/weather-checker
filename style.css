@@ -22,7 +22,7 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
   
-  border: 1px solid black;
+  border: ;
 }
 button{
   margin: 1rem;
@@ -38,6 +38,8 @@ button{
 #searchCity{
   background-color: coral;
   color: white;
+  width: 2rem;
+  margin: 0rem;
 }
 
 .listItem{
@@ -58,14 +60,17 @@ button{
   padding-right: auto;
 }
 
-.col-sm-2{
-  border: 1px solid black;
-  height: auto;
-  width: auto;
-  margin: .5rem;
-}
+
 
 #fiveDayBox{
-  border: 1px solid black;
+  border: 1px solid white;
   margin: auto;
+  background-color: cornflowerblue;
+  color: white;
+  
 }
+
+#fiveDays{
+  font-size: 12px;
+}
+

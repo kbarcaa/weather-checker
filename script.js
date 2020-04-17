@@ -30,9 +30,9 @@ function getCityInfo(cityName){
     var wind = response.wind.speed;
     
     $("#city").text(city + ", " + country + "(" + displayDate + ")");
-    $("#temp").text(tempF + " degress Farenheit");
+    $("#temp").text(tempF + " F");
     $("#humidity").text(humidity + "%");
-    $("#wind").text(wind + "MPH");
+    $("#wind").text(wind + " MPH");
 
     // creating a nesting ajax to call upon independent UV API.
     var uvURL =  "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
@@ -93,9 +93,9 @@ $("#searchCity").on("click", function(event){
     var wind = response.wind.speed;
   
     $("#city").text(city + ", " + country + "(" + displayDate + ")");
-    $("#temp").text(tempF + " degress Farenheit");
+    $("#temp").text(tempF + " F");
     $("#humidity").text(humidity + "%");
-    $("#wind").text(wind + "MPH");
+    $("#wind").text(wind + " MPH");
 
     // creating a nesting ajax to call upon independent UV API.
     var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIkey + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
@@ -167,17 +167,21 @@ function renderFiveDays(response2){
     var divTag = $("<div>")
     divTag.attr("id", "fiveDayBox")
 
-    var temp = $("<h3>")
+    var temp = $("<h5>")
     var tempK = fiveDayArr[i].main.temp;
     var tempF = (parseFloat(tempK) - 273.15)*1.80+32;
     tempF = tempF.toFixed(2)
-    temp.text("Temp: " + tempF + "degress in F")
+    temp.text("Temp: " + tempF + " F")
 
     var date = $("<h4>")
-    date.text("Date: " + fiveDayArr[i].dt_txt.split(" ")[0]);
+    date.text(fiveDayArr[i].dt_txt.split(" ")[0]);
+
+    var hum = $("<h5>")
+    hum.text("Humidity: " + fiveDayArr[i].main.humidity + "%")
     
     divTag.append(date)
     divTag.append(temp)
+    divTag.append(hum)
     
     $("#fiveDays").append(divTag)
 
