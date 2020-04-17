@@ -21,22 +21,21 @@
   margin-left: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  
-  border: ;
 }
 button{
   margin: 1rem;
-  background-color: cornflowerblue;
-  color: white;
-  width: 9rem;
+  background-color: rgba(228, 227, 227, .2);
+  color: black;
+  width: 9.7rem;
 }
 
 #city{
+  margin-left: 1rem;
   font-size: 3rem;
   margin-bottom: 2rem
 }
 #searchCity{
-  background-color: coral;
+  background-color: rgb(63, 111, 199);
   color: white;
   width: 2rem;
   margin: 0rem;
@@ -65,7 +64,8 @@ button{
 #fiveDayBox{
   border: 1px solid white;
   margin: auto;
-  background-color: cornflowerblue;
+  padding: 1rem;
+  background-color: rgb(63, 111, 199);
   color: white;
   
 }

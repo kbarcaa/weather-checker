@@ -5,7 +5,7 @@ var month = dateTag.getUTCMonth() + 1;
 var day = dateTag.getUTCDate();
 var year = dateTag.getUTCFullYear();
 
-var displayDate = month + "." + day + "." + year;
+var displayDate = month + "/" + day + "/" + year;
 
 
 
@@ -29,8 +29,8 @@ function getCityInfo(cityName){
     var humidity = response.main.humidity;
     var wind = response.wind.speed;
     
-    $("#city").text(city + ", " + country + "(" + displayDate + ")");
-    $("#temp").text(tempF + " F");
+    $("#city").text(city + ", " + country + " (" + displayDate + ")");
+    $("#temp").text(tempF + " °F");
     $("#humidity").text(humidity + "%");
     $("#wind").text(wind + " MPH");
 
@@ -58,7 +58,7 @@ function getCityInfo(cityName){
 
 // function to render buttons with user input City name
 function renderButtons(){
-  $("#searchList").html("");
+  $("#searchList").html(" ");
   for(i=0;i<allCities.length;i++){
     var btn = $("<button>");
     btn.text(allCities[i]);
@@ -92,8 +92,8 @@ $("#searchCity").on("click", function(event){
     var humidity = response.main.humidity;
     var wind = response.wind.speed;
   
-    $("#city").text(city + ", " + country + "(" + displayDate + ")");
-    $("#temp").text(tempF + " F");
+    $("#city").text(city + ", " + country + " (" + displayDate + ")");
+    $("#temp").text(tempF + " °F");
     $("#humidity").text(humidity + "%");
     $("#wind").text(wind + " MPH");
 
@@ -171,7 +171,7 @@ function renderFiveDays(response2){
     var tempK = fiveDayArr[i].main.temp;
     var tempF = (parseFloat(tempK) - 273.15)*1.80+32;
     tempF = tempF.toFixed(2)
-    temp.text("Temp: " + tempF + " F")
+    temp.text("Temp: " + tempF + " °F")
 
     var date = $("<h4>")
     date.text(fiveDayArr[i].dt_txt.split(" ")[0]);
