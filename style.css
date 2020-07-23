@@ -1,3 +1,21 @@
+
+body, html {
+  height: 100%;
+}
+
+body {
+  /* The image used */
+  background-image: url("https://images.unsplash.com/photo-1529923123842-3310dfdc0b10?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .container{
   padding: 0 50px;
   
@@ -5,8 +23,8 @@
 #header{
   margin: 0;
   padding: 1rem;
-  background-color: rgba(14, 13, 13, 0.85);
-  color: white;
+  /* background-color: rgb(63, 111, 199); */
+  color: black;
   text-align: center;
 }
 #button{
@@ -17,29 +35,14 @@
   padding: 1rem;
   border: 1px solid black;
 }
-#search{
-  margin-left: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-button{
-  margin: 1rem;
-  background-color: rgba(228, 227, 227, .2);
-  color: black;
-  width: 9.7rem;
-}
+
 
 #city{
   margin-left: 1rem;
   font-size: 3rem;
   margin-bottom: 2rem
 }
-#searchCity{
-  background-color: rgb(63, 111, 199);
-  color: white;
-  width: 2rem;
-  margin: 0rem;
-}
+
 
 .listItem{
   font-size: 1.5rem;

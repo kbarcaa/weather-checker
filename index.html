@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>homework06</title>
+  <title>Weather Checker</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -14,26 +14,28 @@
   
 
   <div class="row">
-    <div class="col-md-12" id="header">
-      <h1>Weather Dashboard</h1>
+    <div class="col-12 mb-5" id="header">
+      <h1>Weather Checker</h1>
     </div>
   </div>
 
-  <div class="container-fluid">
+  
+  <div class="bg-img container-fluid">
 
     <div class="row" id= "row">
-      <div class="col-sm-2" id="search">
+      <div class="col-md-2" id="search">
         <form id="searchForm" method="POST">
-          <label for="cityInput" id="label"> <b>Search for a city: </b></label>
-          <input type="text" id="cityInput" placeholder ="&#xf002;" />
+          <label for="cityInput" id="label"> </label>
+          <input type="text" id="cityInput" placeholder ="Search for a city:" />
           <button type="submit" id="searchCity">
             <i class="fa fa-search" aria-hidden="true"></i>
           </button>
         </form>
         <div id="searchList"></div>
       </div>
+      
 
-      <div class="col" id= "main">
+      <div class="col-md-10" id= "main">
         <div id="displayMain">
           
           <div class="" id=""><span id= "city">City</span> <img id="iconHere"> </img></div>
