@@ -1,39 +1,31 @@
 
-body, html {
-  height: 100%;
-}
-
 body {
-  /* The image used */
+
   background-image: url("https://images.unsplash.com/photo-1529923123842-3310dfdc0b10?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=60");
-
-  /* Full height */
   height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
+  background-position: center center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
-.container{
-  padding: 0 50px;
-  
+#searchList button{
+  display: flex;
+  margin-bottom: 1rem;
+  color: white;
+  background-color: rgb(63, 111, 199);
 }
-#header{
-  margin: 0;
-  padding: 1rem;
-  /* background-color: rgb(63, 111, 199); */
-  color: black;
-  text-align: center;
+#searchCity{
+  color: white;
+  background-color: rgb(63, 111, 199);
 }
-#button{
-  border: 1px solid black;
-}
-#li{
+
+
+#li {
   list-style: none;
   padding: 1rem;
-  border: 1px solid black;
+ 
 }
 
 
@@ -50,10 +42,7 @@ body {
   margin-left: 1rem;
 }
 
-#searchText{
-  display: block;
-  max-width: auto;
-}
+
 #displayMain{
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -77,3 +66,10 @@ body {
   font-size: 12px;
 }
 
+
+@media (max-width: 767px) {
+  #searchList button{
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+}

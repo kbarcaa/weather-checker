@@ -14,23 +14,31 @@
   
 
   <div class="row">
-    <div class="col-12 mb-5" id="header">
-      <h1>Weather Checker</h1>
+    <div class="col-12 m-3" id="header">
+      <h1 class="text-center">
+        Weather Checker
+      </h1>
     </div>
   </div>
 
   
-  <div class="bg-img container-fluid">
+  <div class="container">
 
     <div class="row" id= "row">
       <div class="col-md-2" id="search">
+
         <form id="searchForm" method="POST">
-          <label for="cityInput" id="label"> </label>
-          <input type="text" id="cityInput" placeholder ="Search for a city:" />
-          <button type="submit" id="searchCity">
+          <div class="form-group">
+            
+            <label for="cityInput" id="label">
+              Search for a City </label>
+            <input class="form-control" type="text" id="cityInput" placeholder ="City Name" />
+            <button class="m-1 p-1" type="submit" id="searchCity">
             <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
+            </button>
+          </div>
         </form>
+
         <div id="searchList"></div>
       </div>
       
