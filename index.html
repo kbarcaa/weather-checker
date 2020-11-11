@@ -1,79 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Checker</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
-  
+
 
   <div class="row">
-    <div class="col-12 m-3" id="header">
+    <div class="col-12 p-2 mt-3" id="header">
       <h1 class="text-center">
         Weather Checker
       </h1>
     </div>
   </div>
 
-  
+
   <div class="container">
 
-    <div class="row" id= "row">
-      <div class="col-md-2" id="search">
+    <div class="row" id="row">
+      <div class="col-md-3" id="search">
 
         <form id="searchForm" method="POST">
           <div class="form-group">
-            
+
             <label for="cityInput" id="label">
-              Search for a City </label>
-            <input class="form-control" type="text" id="cityInput" placeholder ="City Name" />
-            <button class="m-1 p-1" type="submit" id="searchCity">
-            <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
+              Search anywhere in US </label>
+            <div class="d-flex">
+              <input class="form-control " type="text" id="cityInput" placeholder="Place Name" />
+              <button class="m-1 p-1" type="submit" id="searchCity">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+
           </div>
         </form>
 
-        <div id="searchList">
-          <!-- <ul id='searchListBtn'></ul> -->
+        <div class="flex-column" id="searchList">
+          
         </div>
       </div>
-      
 
-      <div class="col-md-10" id= "main">
-        <div id="displayMain">
-          
-          <div class="" id=""><span id= "city">City</span> <img id="iconHere"> </img></div>
-          <div class="listItem" id="">Temperature: <span id= "temp"></span></div>
-          <div class="listItem" id="">Humidity: <span id= "humidity"></span></div>
-          <div class="listItem" id="">Wind Speed: <span id= "wind"></span></div>
-          <div class="listItem" id="uvColor">UV Index: <span id= "uv"></span></div>
+
+      <div class="col-md-9" id="main">
+        <div class=" bg-dark" id="displayMain">
+
+          <div class="text-light" id=""><span id="city">City</span> <img id="iconHere"> </img></div>
+          <div class="d-flex">
+            <div class="listItem text-light" id="temperature">Temperature: <span class="text-light" id="temp"></span></div>
+            <div class="listItem text-light" id="humidityLabel">Humidity: <span class="text-light" id="humidity"></span></div>
+          </div>
+          <div class="d-flex">
+            <div class="listItem text-light" id="windSpeed">Wind Speed: <span class="text-light" id="wind"></span></div>
+            <div class="listItem text-light" id="uvColor">UV Index: <span class="text-white" id="uv"></span></div>
+          </div>
         </div>
+
+        
+          <hr>
         
 
-        <div class ="row" id= "fiveDays"></div>
-          
-        
-        
+        <div class="row" id="fiveDays">
+
+        </div>
 
       </div>
 
     </div>
   </div>
 
-  
 
 
-  
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="script.js"></script>
-  
-  
+
+
 
 </body>
+
 </html>

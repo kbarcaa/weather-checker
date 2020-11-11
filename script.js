@@ -1,12 +1,10 @@
 // declaring vairables
 let allCities = [];
-let filteredCities = [];
-
 var someDate = new Date();
 var dd = someDate.getDate();
 var mm = someDate.getMonth() + 1;
 var y = someDate.getFullYear();
-var displayDate = mm + '/' + dd + '/' + y;
+var displayDate = mm + '.' + dd + '.' + y;
 
 //to retrieve any previously stored searches
 getSearch();
@@ -39,7 +37,7 @@ function getCityInfo(cityName) {
       'http://openweathermap.org/img/wn/' + icon + '@2x.png'
     );
     $('#iconHere').append(icon);
-    $('#city').text(city + ', ' + country + ' (' + displayDate + ')');
+    $('#city').text(city + ', ' + country + ' - ' + displayDate);
     $('#temp').text(tempF + ' °F');
     $('#humidity').text(humidity + '%');
     $('#wind').text(wind + ' MPH');
@@ -80,10 +78,6 @@ function getCityInfo(cityName) {
     url: fiveDayURL,
     method: 'GET',
   }).then(function (response2) {
-    // console.log(fiveDayURL);
-    // console.log(response2);
-    // console.log(response2.list);
-    // console.log(fiveDayArr)
     renderFiveDays(response2);
   });
 }
@@ -94,16 +88,10 @@ function renderButtons() {
    allCities = [...new Set(allCities)]
   //creating, setting, & appending button text as from list items in []
   for (i = 0; i < allCities.length; i++) {
-    // var removeBtn = `<button></button>`
-    // $('#searchList').append(removeBtn);
-
     // var btn = $('<button>');
     // btn.text(allCities[i]);
-    // let li = `<li data-index='${i}'>${btn}</li>`
-    // $('ul').append(li);
     var btn = `<button id=btn>${allCities[i]}</button>`
     var removeBtn = `<button data-index='${i}' id='iconTrashCan'><i class='fa fa-trash'></i></button>`;
-    
     $('#searchList').append(btn);
     $('#searchList').append(removeBtn);
   }
@@ -158,7 +146,7 @@ function renderFiveDays(response2) {
     var tempK = fiveDayArr[i].main.temp;
     var tempF = (parseFloat(tempK) - 273.15) * 1.8 + 32;
     tempF = tempF.toFixed(2);
-    temp.text('Temp: ' + tempF + ' °F');
+    temp.text(tempF + ' °F');
 
     var date = $('<h4>');
     date.text(fiveDayArr[i].dt_txt.split(' ')[0]);
