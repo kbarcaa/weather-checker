@@ -1,10 +1,15 @@
 // declaring vairables
-var allCities = [];
+let allCities = [];
+let filteredCities = [];
+
 var someDate = new Date();
 var dd = someDate.getDate();
 var mm = someDate.getMonth() + 1;
 var y = someDate.getFullYear();
 var displayDate = mm + '/' + dd + '/' + y;
+
+//to retrieve any previously stored searches
+getSearch();
 
 // function to call on information
 function getCityInfo(cityName) {
@@ -19,7 +24,7 @@ function getCityInfo(cityName) {
     url: oneDayURL,
     method: 'GET',
   }).then(function (response) {
-    console.log(response);
+    // console.log(response);
     var city = response.name;
     var country = response.sys.country;
     var tempK = response.main.temp;
@@ -64,18 +69,37 @@ function getCityInfo(cityName) {
       }
     });
   });
+
+  var fiveDayURL =
+    'https://api.openweathermap.org/data/2.5/forecast?q=' +
+    cityName +
+    '&appid=' +
+    APIkey;
+
+  $.ajax({
+    url: fiveDayURL,
+    method: 'GET',
+  }).then(function (response2) {
+    // console.log(fiveDayURL);
+    // console.log(response2);
+    // console.log(response2.list);
+    // console.log(fiveDayArr)
+    renderFiveDays(response2);
+  });
 }
 
 // function to render buttons with user input City name
 function renderButtons() {
   $('#searchList').html(' ');
-  for (i = 0; i < allCities.length; i++) {
+  let uniqueList = [...new Set(allCities)]
+  //creating, setting, & appending button text as from list items in []
+  for (i = 0; i < uniqueList.length; i++) {
     var btn = $('<button>');
-    btn.text(allCities[i]);
+    btn.text(uniqueList[i]);
     $('#searchList').append(btn);
   }
 }
-
+//to clear out search bar post submit
 function resetSearchBar() {
   $('#cityInput').val('');
 }
@@ -84,86 +108,11 @@ function resetSearchBar() {
 // it will display city information on the page
 $('#searchCity').on('click', function (event) {
   event.preventDefault();
-  var cityName = $('#cityInput').val();
-  allCities.push(cityName);
+  var cityName = $('#cityInput').val().toLowerCase();
+  allCities.push(cityName)
   renderButtons();
   resetSearchBar();
-
-  var APIkey = 'b328ccab8d372c776afbedb2b4434e8c';
-  var oneDayURL =
-    'https://api.openweathermap.org/data/2.5/weather?q=' +
-    cityName +
-    '&appid=' +
-    APIkey;
-
-  $.ajax({
-    url: oneDayURL,
-    method: 'GET',
-  }).then(function (response) {
-    // console.log(oneDayURL);
-    console.log(response);
-    var city = response.name;
-    var country = response.sys.country;
-    var tempK = response.main.temp;
-    var tempF = (parseFloat(tempK) - 273.15) * 1.8 + 32;
-    tempF = tempF.toFixed(2);
-    var humidity = response.main.humidity;
-    var wind = response.wind.speed;
-    var icon = response.weather[0].icon;
-
-    $('#iconHere').attr(
-      'src',
-      'http://openweathermap.org/img/wn/' + icon + '@2x.png'
-    );
-    $('#iconHere').append(icon);
-    $('#city').text(city + ', ' + country + ' (' + displayDate + ')');
-    $('#temp').text(tempF + ' °F');
-    $('#humidity').text(humidity + '%');
-    $('#wind').text(wind + ' MPH');
-
-    // creating a nesting ajax to call upon independent UV API.
-    var uvURL =
-      'https://api.openweathermap.org/data/2.5/uvi?appid=' +
-      APIkey +
-      '&lat=' +
-      response.coord.lat +
-      '&lon=' +
-      response.coord.lon;
-    $.ajax({
-      url: uvURL,
-      method: 'GET',
-    }).then(function (response) {
-      var uv = response.value;
-      $('#uv').text(uv);
-
-      // giving <uv span> color according to value number
-      if (response.value >= 10) {
-        $('#uv').css('background-color', 'red');
-      } else if (response.value < 10 && response.value > 6) {
-        $('#uv').css('background-color', 'yellow');
-      } else {
-        $('#uv').css('background-color', 'green');
-      }
-    });
-  });
-
-  var fiveDayURL =
-    'https://api.openweathermap.org/data/2.5/forecast?q=' +
-    cityName +
-    '&appid=' +
-    APIkey;
-
-  $.ajax({
-    url: fiveDayURL,
-    method: 'GET',
-  }).then(function (response2) {
-    console.log(fiveDayURL);
-    console.log(response2);
-    console.log(response2.list);
-    // console.log(fiveDayArr)
-    renderFiveDays(response2);
-  });
-
+  getCityInfo(cityName);
   storeSearch();
 });
 
@@ -172,21 +121,6 @@ $('#searchList').on('click', 'button', function () {
   // console.log($(this).text());
   var cityName = $(this).text();
   getCityInfo(cityName);
-
-  var APIkey = 'b328ccab8d372c776afbedb2b4434e8c';
-  var fiveDayURL =
-    'https://api.openweathermap.org/data/2.5/forecast?q=' +
-    cityName +
-    '&appid=' +
-    APIkey;
-
-  $.ajax({
-    url: fiveDayURL,
-    method: 'GET',
-  }).then(function (response2) {
-    // console.log(fiveDayArr)
-    renderFiveDays(response2);
-  });
 });
 
 // function to call on five day information
@@ -248,7 +182,6 @@ function getForecastForEachDay(listOfForecasts) {
 }
 
 // calling on stored items when page refreshed
-getSearch();
 function getSearch() {
   var storedSearch = JSON.parse(localStorage.getItem('cities'));
   if (storedSearch !== null) {
