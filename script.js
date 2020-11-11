@@ -42,6 +42,10 @@ function getCityInfo(cityName) {
     $('#humidity').text(humidity + '%');
     $('#wind').text(wind + ' MPH');
 
+    //placed here so that spelling mistake search result wont be pushed to main array 
+    allCities.push(cityName);
+    renderButtons();
+    
     // creating a nesting ajax to call upon independent UV API
     var uvURL =
       'https://api.openweathermap.org/data/2.5/uvi?appid=' +
@@ -56,7 +60,6 @@ function getCityInfo(cityName) {
     }).then(function (response) {
       var uv = response.value;
       $('#uv').text(uv);
-
       // giving <uv span> color according to value number
       if (response.value >= 10) {
         $('#uv').css('background-color', 'red');
@@ -66,6 +69,9 @@ function getCityInfo(cityName) {
         $('#uv').css('background-color', 'green');
       }
     });
+  }).catch(()=>{
+    //to alert if there is spelling mistake in search
+    alert('check spelling')
   });
 
   var fiveDayURL =
@@ -80,6 +86,8 @@ function getCityInfo(cityName) {
   }).then(function (response2) {
     renderFiveDays(response2);
   });
+
+  
 }
 
 // function to render buttons with user input City name
@@ -106,8 +114,7 @@ function resetSearchBar() {
 $('#searchCity').on('click', function (event) {
   event.preventDefault();
   var cityName = $('#cityInput').val().toLowerCase();
-  allCities.push(cityName)
-  renderButtons();
+  
   resetSearchBar();
   getCityInfo(cityName);
   storeSearch();
@@ -115,13 +122,13 @@ $('#searchCity').on('click', function (event) {
 
 // remove button function
 $('#searchList').on('click', '#iconTrashCan', function (event) {
+  //getting data-index to splice from main array
   var element = event.target;
   var index = element.parentElement.getAttribute('data-index');
-  console.log(index);
   allCities.splice(index, 1);
+  //saving new array to local storage and rendering buttons from new array
   storeSearch();
   renderButtons();
-  
 });
 // function to display information when city-named-buttons are clicked.
 $('#searchList').on('click', '#btn', function () {
@@ -130,12 +137,10 @@ $('#searchList').on('click', '#btn', function () {
   getCityInfo(cityName);
 });
 
-
 // function to call on five day information
 function renderFiveDays(response2) {
   var fiveDayArr = getForecastForEachDay(response2.list);
-  // console.log(fiveDayArr)
-
+  
   $('#fiveDays').text('');
 
   for (i = 0; i < fiveDayArr.length; i++) {
