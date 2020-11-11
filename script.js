@@ -132,7 +132,7 @@ $('#searchList').on('click', '#iconTrashCan', function (event) {
 });
 // function to display information when city-named-buttons are clicked.
 $('#searchList').on('click', '#btn', function () {
-  console.log($(this).text());
+  // console.log($(this).text());
   var cityName = $(this).text();
   getCityInfo(cityName);
 });
