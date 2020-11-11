@@ -15,8 +15,9 @@ body {
   overflow-x: hidden;
 }
 
+
 #searchList button{
-  display: flex;
+  /* display: flex; */
   margin-bottom: 1rem;
   color: white;
   background-color: rgb(63, 111, 199);

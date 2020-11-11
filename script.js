@@ -91,12 +91,21 @@ function getCityInfo(cityName) {
 // function to render buttons with user input City name
 function renderButtons() {
   $('#searchList').html(' ');
-  let uniqueList = [...new Set(allCities)]
+   allCities = [...new Set(allCities)]
   //creating, setting, & appending button text as from list items in []
-  for (i = 0; i < uniqueList.length; i++) {
-    var btn = $('<button>');
-    btn.text(uniqueList[i]);
+  for (i = 0; i < allCities.length; i++) {
+    // var removeBtn = `<button></button>`
+    // $('#searchList').append(removeBtn);
+
+    // var btn = $('<button>');
+    // btn.text(allCities[i]);
+    // let li = `<li data-index='${i}'>${btn}</li>`
+    // $('ul').append(li);
+    var btn = `<button id=btn>${allCities[i]}</button>`
+    var removeBtn = `<button data-index='${i}' id='iconTrashCan'><i class='fa fa-trash'></i></button>`;
+    
     $('#searchList').append(btn);
+    $('#searchList').append(removeBtn);
   }
 }
 //to clear out search bar post submit
@@ -116,12 +125,23 @@ $('#searchCity').on('click', function (event) {
   storeSearch();
 });
 
+// remove button function
+$('#searchList').on('click', '#iconTrashCan', function (event) {
+  var element = event.target;
+  var index = element.parentElement.getAttribute('data-index');
+  console.log(index);
+  allCities.splice(index, 1);
+  storeSearch();
+  renderButtons();
+  
+});
 // function to display information when city-named-buttons are clicked.
-$('#searchList').on('click', 'button', function () {
-  // console.log($(this).text());
+$('#searchList').on('click', '#btn', function () {
+  console.log($(this).text());
   var cityName = $(this).text();
   getCityInfo(cityName);
 });
+
 
 // function to call on five day information
 function renderFiveDays(response2) {
