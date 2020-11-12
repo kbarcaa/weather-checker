@@ -2,7 +2,9 @@
 
 ## Project Description:
 
-Web application for checking weather of any city in US without advertisement!
+Web application for checking weather of any city in US without advertisement.
+
+https://sungjinkimm.github.io/weather-checker/
 
 * Current weather
 * 5-day Forecast 
