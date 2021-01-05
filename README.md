@@ -4,7 +4,7 @@
 
 Web application for checking weather of any city in US without advertisement.
 
-https://sungjinkimm.github.io/weather-checker/
+https://kbarcaa.github.io/weather-checker/
 
 * Current weather
 * 5-day Forecast 
