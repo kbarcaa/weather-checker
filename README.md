@@ -10,7 +10,7 @@ Web application for checking weather of any city in US without advertisement.
 * Current weather
 * 5-day Forecast 
 
-Utilizied: 
+Utilized: 
 * HTML
 * CSS
 * JavaScript
