@@ -61,7 +61,7 @@ THEN I am presented with the last searched city forecast
 ## Available_Scripts:
 Command: 
 ```sh
-git clone git@github.com:sungjinkimm/weather-checker.git
+git clone git@github.com:masonkimm/weather-checker.git
 ```
 ## Credits: 
 
