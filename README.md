@@ -1,23 +1,35 @@
 # Weather Checker
 
-## Project Description:
+Project link: (https://masonkimm.github.io/weather-checker)
+
+
+## Description:
 
 Web application for checking weather of any city in US without advertisement.
-
-https://kbarcaa.github.io/weather-checker/
 
 * Current weather
 * 5-day Forecast 
 
+Utilizied: 
+* HTML
+* CSS
+* JavaScript
+* Bootstrap
+* JQuery
+* Weather - API
+* Ajax
+
 
 ## Table of Contents:
 
-* [Business Context](#BusinessContext)
-* [Installation](#Installation)
+* [Description](#Description)
+* [Business Context](#Business_Context)
+* [Git Hub](#GitHub)
+* [Available Scripts](#Available_Scripts)
 * [Credits](#Credits)
 * [License](#License)
 
-## Business Context
+## Business_Context
 ```
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
@@ -34,12 +46,23 @@ WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
 
-## Installation:
+
+
+## Code Utilization: 
+
+![weather-checker](https://img.shields.io/github/languages/top/masonkimm/weather-checker)
+
+## GitHub:
+* GitHub link: (https://github.com/masonkimm)
+
+* Github project page link: (https://github.com/masonkimm/weather-checker)
+
+
+## Available_Scripts:
 Command: 
 ```sh
 git clone git@github.com:sungjinkimm/weather-checker.git
 ```
-
 ## Credits: 
 
 Mason Kim
@@ -54,14 +77,3 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS",  WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-## Code Utilization: 
-
-![weather-checker](https://img.shields.io/github/languages/top/sungjinkimm/weather-checker)
-
-## GitHub URL & Profile
-
-[https://github.com/sungjinkimm](https://github.com/sungjinkimm)
-
-
-![GitHub Avatar](https://avatars0.githubusercontent.com/u/50185484?v=4)
