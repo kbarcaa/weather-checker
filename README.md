@@ -49,8 +49,8 @@ THEN I am presented with the last searched city forecast
 
 
 ## Code Utilization: 
-* Language Count: ![portfolio-kim](https://img.shields.io/github/languages/count/masonkimm/portfolio-kim)
-* Top language: ![portfolio-kim](https://img.shields.io/github/languages/top/masonkimm/portfolio-kim)
+* Language Count: ![](https://img.shields.io/github/languages/count/masonkimm/weather-checker)
+* Top language: ![](https://img.shields.io/github/languages/top/masonkimm/weather-checker)
 
 ## GitHub:
 * GitHub link: (https://github.com/masonkimm)
